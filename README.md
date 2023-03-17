@@ -1,6 +1,14 @@
-# Locally connect VSCode to a Coder container
+# Coder
 
-## Install
+## Dotfiles Repo
+
+Coder containers can be personalized read [here](https://coder.com/docs/v1/v1.32/workspaces/personalization) for more details.
+
+
+
+## Remote SSH into a Coder container
+
+### Install
 
 Install the [coder CLI](https://coder.com/docs/v1/latest/cli/installation) From your local machine. To do so navigate to the [coder/v1/release](https://github.com/coder/coder-v1-cli/releases) and download the coder-cli-windows.zip
 
@@ -19,7 +27,7 @@ Once you have put the executable in your `PATH` check that this is configured co
 PS C:\windows\system32> coder --version
 ```
 
-## Login
+### Login
 
 Now with the coder cli enabled on your local machine you need to login.  The command below will open a browser instance to authenticate.
 
@@ -46,7 +54,7 @@ kinetic     ubuntu:kinetic                        4       4           10        
 pycharm     codercom/enterprise-pycharm:ubuntu    4       8           10        OFF       us-west     false    leaver
 ```
 
-## Configure
+### Configure
 
 In the local machine you now need to configure the ssh connection
 
@@ -54,7 +62,8 @@ In the local machine you now need to configure the ssh connection
 PS Env:\> coder config-ssh
 >>
 ```
-## Done
+
+### Done
 
 You should be able to SSH into coder from the local machine.
 
