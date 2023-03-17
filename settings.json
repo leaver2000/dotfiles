@@ -1,0 +1,24 @@
+{
+    "explorer.compactFolders": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "*.egg-info":true,
+        "build/":true,
+        ".pytest_cache":true,
+        "**/Thumbs.db": true
+    },
+    "python.analysis.typeCheckingMode": "basic",
+    "remote.SSH.remotePlatform": {
+        "coder.base-ubi": "linux"
+    },
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "vsicons.associations.folders": [
+        { "icon": "python", "extensions": ["notebook", "notebooks"], "format": "svg", "light": true }
+    ],
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Monokai"
+}
