@@ -2,6 +2,7 @@
   // ======================================================
   // These are VSCode settings I use across all my projects
   // ======================================================
+  // - files.exclude will hide junk in the file explorer
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -31,17 +32,6 @@
   "editor.tabSize": 2,
   "editor.indentSize": "tabSize",
   "editor.insertSpaces": true,
-  // ======================================================
-  // CSpell settings
-  // ======================================================
-  "cSpell.customDictionaries": {
-    "dotfiles-dictionary": {
-      "name": "dotfiles-dictionary",
-      "path": "~/dotfiles/vscode/dictionary.txt",
-      "description": "Words used in this project",
-      "addWords": true
-    }
-  },
   // ======================================================
   // terminal settings
   // ======================================================
@@ -77,7 +67,13 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // ======================================================
-  // vscode-icons
+  // Extension: vscode-icons
+  // Name: vscode-icons
+  // Id: vscode-icons-team.vscode-icons
+  // Description: Icons for Visual Studio Code
+  // Version: 12.2.0
+  // Publisher: VSCode Icons Team
+  // VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
   // ======================================================
   "workbench.iconTheme": "vscode-icons",
   "workbench.colorTheme": "Monokai",
@@ -85,5 +81,24 @@
     { "icon": "python", "extensions": ["notebooks"], "format": "svg" },
     { "icon": "db", "extensions": ["static_datasets", "archive", "datasets"], "format": "svg" }
   ],
-  "vsicons.associations.files": [{ "icon": "db", "extensions": ["arrow", "pq", "parquet"], "format": "svg" }]
+  "vsicons.associations.files": [{ "icon": "db", "extensions": ["arrow", "pq", "parquet"], "format": "svg" }],
+  // ======================================================
+  // Extension: Code Spell Checker
+  // Name: Code Spell Checker
+  // Id: streetsidesoftware.code-spell-checker
+  // Description: Spelling checker for source code
+  // Version: 2.20.3
+  // Publisher: Street Side Software
+  // VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+  // ======================================================
+  // - cSpell.customDictionaries is a list of dictionaries to use
+  // - dotfiles-dictionary is a dictionary I keep in my dotfiles repo and symlink to
+  "cSpell.customDictionaries": {
+    "dotfiles-dictionary": {
+      "name": "dotfiles-dictionary",
+      "path": "~/dotfiles/vscode/dictionary.txt",
+      "description": "Words used in this project",
+      "addWords": true
+    }
+  }
 }
