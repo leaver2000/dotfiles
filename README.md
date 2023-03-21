@@ -4,8 +4,6 @@
 
 Coder containers can be personalized read [here](https://coder.com/docs/v1/v1.32/workspaces/personalization) for more details.
 
-
-
 ## Remote SSH into a Coder container
 
 ### Install
@@ -71,4 +69,15 @@ You should be able to SSH into coder from the local machine.
 PS Env:\> ssh coder.base-ubi
 (base) coder@base-ubi:~$ python -V
 Python 3.9.12
+```
+
+## Scripts
+
+### cspell
+
+There is s a cspell terminal command that will add words to the dictionary. This is used with the  Code SPell Checker extension. To do so run the command below.
+
+```bash
+cp scripts/cspell ~/.local/bin/
+cspell BKN OVC
 ```
