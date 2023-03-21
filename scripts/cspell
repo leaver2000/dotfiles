@@ -2,23 +2,21 @@
 import os
 import argparse
 
-PATH_TO_DICTIONARY = os.path.join(
-    os.environ["HOME"], "dotfiles", "vscode", "dictionary.txt"
-)
+PATH_TO_DICTIONARY = os.path.join(os.environ["HOME"], "dotfiles", "vscode", "dictionary.txt")
 
 
 def main(words: list[str]) -> None:
-    
+
     with open(PATH_TO_DICTIONARY, "r") as f:
         words += f.read().splitlines()
-    
-    text = '\n'.join(set(map(str.lower, words)))
+
+    text = "\n".join(set(map(str.lower, words)))
     with open(PATH_TO_DICTIONARY, "w") as f:
         f.write(text)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("words", nargs="+")
     args = parser.parse_args()
     main(args.words)
-
