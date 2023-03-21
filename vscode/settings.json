@@ -1,87 +1,90 @@
 {
-  "explorer.compactFolders": true,
-  "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
-    "**/.DS_Store": true,
-    "**/Thumbs.db": true,
-    ".github": true,
-    "**/node_modules": true,
-    "**/bower_components": true,
-    "**/dist": true,
-    "**/build": true,
-    // python cache
-    "__pycache__": true,
-    ".eggs": true,
-    "*.egg-info": true,
-    ".venv": true,
-    ".ipynb_checkpoints": true,
-    ".coverage": true,
-    ".ruff_cache": true,
-    ".pytest_cache": true,
-    ".mypy_cache": true
-  },
-  "editor.tabCompletion": "on",
-  "editor.rulers": [119],
-  "editor.renderWhitespace": "trailing",
-  "editor.tabSize": 2,
-  "editor.indentSize": "tabSize",
-  "editor.insertSpaces": true,
-  // ======================================================
-  //      remote settings
-  // ======================================================
-  "remote.SSH.remotePlatform": {
-    "coder.base-ubi": "linux"
-  },
-  // ======================================================
-  //      terminal settings
-  // ======================================================
-  "terminal.integrated.defaultProfile.linux": "zsh",
-  "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.cursorBlinking": true,
-  "terminal.integrated.fontSize": 14,
-  "terminal.integrated.lineHeight": 1,
-  "terminal.integrated.letterSpacing": 0,
-  "terminal.integrated.gpuAcceleration": "on",
-  // ======================================================
-  //      python settings
-  // ======================================================
-  "python.analysis.typeCheckingMode": "basic",
-  "python.analysis.logLevel": "Information",
-  "python.analysis.exclude": [".venv/**", "venv/**"],
-  "python.analysis.stubPath": "typings",
-  "[python]": {
-    "editor.tabSize": 4,
-    "editor.wordBasedSuggestions": true,
-    "editor.defaultFormatter": "ms-python.python"
-  },
-  // ======================================================
-  //      javascript and typescript
-  // ======================================================
-  "[javascript]": {
-    "editor.tabSize": 2
-  },
-  "[typescript]": {
-    "editor.tabSize": 2
-  },
-  "[json]": {
-    "editor.tabSize": 2,
-    "editor.quickSuggestions": {
-      "strings": true
-    },
-    "editor.suggest.insertMode": "replace",
-    "editor.indentSize": "tabSize"
-  },
-  // ======================================================
-  //      vscode-icons
-  // ======================================================
-  "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "Monokai",
-  "vsicons.associations.folders": [
-    { "icon": "python", "extensions": ["notebook", "notebooks", "venv"], "format": "svg" },
-    { "icon": "db", "extensions": ["static_datasets", "archive", "datasets"], "format": "svg" }
-  ],
-  "vsicons.associations.files": [{ "icon": "db", "extensions": ["arrow", "pq", "parquet"], "format": "svg" }]
+	// ======================================================
+	// 						General settings
+	// ======================================================
+	"files.exclude": {
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/CVS": true,
+		"**/.DS_Store": true,
+		"**/Thumbs.db": true,
+		".github": true,
+		"**/node_modules": true,
+		"**/bower_components": true,
+		"**/dist": true,
+		"**/build": true,
+		// python cache
+		"__pycache__": true,
+		".eggs": true,
+		"*.egg-info": true,
+		".venv": true,
+		".ipynb_checkpoints": true,
+		".coverage": true,
+		".ruff_cache": true,
+		".pytest_cache": true,
+		".mypy_cache": true
+	},
+	"editor.tabCompletion": "on",
+	"editor.rulers": [119],
+	"editor.renderWhitespace": "trailing",
+	"editor.tabSize": 2,
+	"editor.indentSize": "tabSize",
+	"editor.insertSpaces": true,
+	// ======================================================
+	// 						CSpell settings
+	// ======================================================
+	"cSpell.customDictionaries": {
+		"dotfiles-dictionary": {
+			"name": "dotfiles-dictionary",
+			"path": "~/dotfiles/vscode/dictionary.txt",
+			"description": "Words used in this project",
+			"addWords": true
+		}
+	},
+	// ======================================================
+	// 						terminal settings
+	// ======================================================
+	"terminal.integrated.cursorStyle": "line",
+	"terminal.integrated.cursorBlinking": true,
+	"terminal.integrated.fontSize": 14,
+	"terminal.integrated.lineHeight": 1,
+	"terminal.integrated.letterSpacing": 0,
+	"terminal.integrated.gpuAcceleration": "on",
+	// ======================================================
+	// 						python settings
+	// ======================================================
+	"python.analysis.typeCheckingMode": "basic",
+	"python.analysis.logLevel": "Information",
+	"python.analysis.exclude": [".venv/**"],
+	// set pylance analysis path
+	"python.analysis.stubPath": "typings",
+	"[python]": {
+		"editor.tabSize": 4,
+		"editor.wordBasedSuggestions": true,
+		"editor.defaultFormatter": "ms-python.python"
+	},
+	// ======================================================
+	//					javascript and typescript
+	// ======================================================
+	"[javascript]": {
+		"editor.tabSize": 2
+	},
+	"[typescript]": {
+		"editor.tabSize": 2
+	},
+	"[json]": {
+		"editor.tabSize": 2,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	// ======================================================
+	// 				vscode-icons
+	// ======================================================
+	"workbench.iconTheme": "vscode-icons",
+	"workbench.colorTheme": "Monokai",
+	"vsicons.associations.folders": [
+		{ "icon": "python", "extensions": ["notebooks"], "format": "svg" },
+		{ "icon": "db", "extensions": ["static_datasets", "archive", "datasets"], "format": "svg" }
+	],
+	"vsicons.associations.files": [{ "icon": "db", "extensions": ["arrow", "pq", "parquet"], "format": "svg" }]
 }
