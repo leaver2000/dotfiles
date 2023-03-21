@@ -3,12 +3,9 @@
   // These are VSCode settings I use across all my projects
   // ======================================================
   "editor.tabCompletion": "on",
-  "editor.rulers": [
-    119
-  ],
+  "editor.rulers": [119],
   "editor.renderWhitespace": "trailing",
   "editor.tabSize": 2,
-  "editor.indentSize": "tabSize",
   "editor.insertSpaces": true,
   // - files.exclude will hide junk in the file explorer
   "files.exclude": {
@@ -56,22 +53,15 @@
   // - analysis
   "python.analysis.typeCheckingMode": "basic",
   "python.analysis.logLevel": "Information",
-  "python.analysis.exclude": [
-    ".venv/**"
-  ],
+  "python.analysis.exclude": [".venv/**"],
   "python.analysis.stubPath": "typings",
   // - formatting
   "python.formatting.provider": "black",
-  "python.formatting.blackArgs": [
-    "--line-length=119"
-  ],
+  "python.formatting.blackArgs": ["--line-length=119"],
   "python.formatting.blackPath": "~/.local/bin/black",
   // - linting
   "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": [
-    "--max-line-length=119",
-    "--ignore=E,W,D,I,N806,N815,N818,Q000,Q001,Q002,S001"
-  ],
+  "python.linting.flake8Args": ["--max-line-length=119", "--ignore=E,W,D,I,N806,N815,N818,Q000,Q001,Q002,S001"],
   // ======================================================
   // javascript and typescript
   // ======================================================
@@ -98,36 +88,24 @@
   "vsicons.associations.folders": [
     {
       "icon": "python",
-      "extensions": [
-        "notebooks"
-      ],
+      "extensions": ["notebooks"],
       "format": "svg"
     },
     {
       "icon": "plugin",
-      "extensions": [
-        "perl"
-      ],
+      "extensions": ["perl"],
       "format": "svg"
     },
     {
       "icon": "db",
-      "extensions": [
-        "static_datasets",
-        "archive",
-        "datasets"
-      ],
+      "extensions": ["static_datasets", "archive", "datasets"],
       "format": "svg"
     }
   ],
   "vsicons.associations.files": [
     {
       "icon": "db",
-      "extensions": [
-        "arrow",
-        "pq",
-        "parquet"
-      ],
+      "extensions": ["arrow", "pq", "parquet"],
       "format": "svg"
     }
   ],
