@@ -1,6 +1,6 @@
 {
   // ======================================================
-  // 						General settings
+  // These are VSCode settings I use across all my projects
   // ======================================================
   "files.exclude": {
     "**/.git": true,
@@ -32,7 +32,7 @@
   "editor.indentSize": "tabSize",
   "editor.insertSpaces": true,
   // ======================================================
-  // 						CSpell settings
+  // CSpell settings
   // ======================================================
   "cSpell.customDictionaries": {
     "dotfiles-dictionary": {
@@ -43,7 +43,7 @@
     }
   },
   // ======================================================
-  // 						terminal settings
+  // terminal settings
   // ======================================================
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorBlinking": true,
@@ -52,12 +52,11 @@
   "terminal.integrated.letterSpacing": 0,
   "terminal.integrated.gpuAcceleration": "on",
   // ======================================================
-  // 						python settings
+  // python settings
   // ======================================================
   "python.analysis.typeCheckingMode": "basic",
   "python.analysis.logLevel": "Information",
   "python.analysis.exclude": [".venv/**"],
-  // set pylance analysis path
   "python.analysis.stubPath": "typings",
   "[python]": {
     "editor.tabSize": 4,
@@ -65,7 +64,7 @@
     "editor.defaultFormatter": "ms-python.python"
   },
   // ======================================================
-  //					javascript and typescript
+  // javascript and typescript
   // ======================================================
   "[javascript]": {
     "editor.tabSize": 2
@@ -78,7 +77,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // ======================================================
-  // 				vscode-icons
+  // vscode-icons
   // ======================================================
   "workbench.iconTheme": "vscode-icons",
   "workbench.colorTheme": "Monokai",
