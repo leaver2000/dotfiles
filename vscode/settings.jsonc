@@ -1,114 +1,153 @@
 {
-	// ======================================================
-	// These are VSCode settings I use across all my projects
-	// ======================================================
-	"editor.tabCompletion": "on",
-	"editor.rulers": [119],
-	"editor.renderWhitespace": "trailing",
-	"editor.tabSize": 2,
-	"editor.indentSize": "tabSize",
-	"editor.insertSpaces": true,
-	// - files.exclude will hide junk in the file explorer
-	"files.exclude": {
-		"**/.git": true,
-		"**/.svn": true,
-		"**/.hg": true,
-		"**/CVS": true,
-		"**/.DS_Store": true,
-		"**/Thumbs.db": true,
-		".github": true,
-		"**/node_modules": true,
-		"**/bower_components": true,
-		"**/dist": true,
-		"**/build": true,
-		// python stuff
-		"**/__pycache__/": true,
-		"**/.venv/": true,
-		"**/.ipynb_checkpoints/": true,
-		".eggs": true,
-		"*.egg-info": true,
-		".coverage": true,
-		".ruff_cache": true,
-		".pytest_cache": true,
-		".mypy_cache": true
-	},
-	"workbench.colorTheme": "Monokai",
-	// ======================================================
-	// terminal settings
-	// ======================================================
-	"terminal.integrated.cursorStyle": "line",
-	"terminal.integrated.cursorBlinking": true,
-	"terminal.integrated.fontSize": 14,
-	"terminal.integrated.lineHeight": 1,
-	"terminal.integrated.letterSpacing": 0,
-	"terminal.integrated.gpuAcceleration": "on",
-	// ======================================================
-	// python settings
-	// ======================================================
-	"[python]": {
-		"editor.tabSize": 4,
-		"editor.wordBasedSuggestions": true,
-		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "ms-python.python"
-	},
-	// - analysis
-	"python.analysis.typeCheckingMode": "basic",
-	"python.analysis.logLevel": "Information",
-	"python.analysis.exclude": [".venv/**"],
-	"python.analysis.stubPath": "typings",
-	// - formatting
-	"python.formatting.provider": "black",
-	"python.formatting.blackArgs": ["--line-length=119"],
-	"python.formatting.blackPath": "~/.local/bin/black",
-	// - linting
-	"python.linting.flake8Enabled": true,
-	"python.linting.flake8Args": ["--max-line-length=119", "--ignore=E,W,D,I,N806,N815,N818,Q000,Q001,Q002,S001"],
-	// ======================================================
-	// javascript and typescript
-	// ======================================================
-	"[javascript]": {
-		"editor.tabSize": 2
-	},
-	"[typescript]": {
-		"editor.tabSize": 2
-	},
-	"[json]": {
-		"editor.tabSize": 2,
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	// ======================================================
-	// Extension: vscode-icons
-	// Name: vscode-icons
-	// Id: vscode-icons-team.vscode-icons
-	// Description: Icons for Visual Studio Code
-	// Version: 12.2.0
-	// Publisher: VSCode Icons Team
-	// VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
-	// ======================================================
-	"workbench.iconTheme": "vscode-icons",
-	"vsicons.associations.folders": [
-		{ "icon": "python", "extensions": ["notebooks"], "format": "svg" },
-		{ "icon": "plugin", "extensions": ["perl"], "format": "svg" },
-		{ "icon": "db", "extensions": ["static_datasets", "archive", "datasets"], "format": "svg" }
-	],
-	"vsicons.associations.files": [{ "icon": "db", "extensions": ["arrow", "pq", "parquet"], "format": "svg" }],
-	// ======================================================
-	// Extension: Code Spell Checker
-	// Name: Code Spell Checker
-	// Id: streetsidesoftware.code-spell-checker
-	// Description: Spelling checker for source code
-	// Version: 2.20.3
-	// Publisher: Street Side Software
-	// VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
-	// ======================================================
-	// - cSpell.customDictionaries is a list of dictionaries to use
-	// - dotfiles-dictionary is a dictionary I keep in my dotfiles repo and symlink to
-	"cSpell.customDictionaries": {
-		"dotfiles-dictionary": {
-			"name": "dotfiles-dictionary",
-			"path": "~/dotfiles/vscode/dictionary.txt",
-			"description": "Words used in this project",
-			"addWords": true
-		}
-	}
+  // ======================================================
+  // These are VSCode settings I use across all my projects
+  // ======================================================
+  "editor.tabCompletion": "on",
+  "editor.rulers": [
+    119
+  ],
+  "editor.renderWhitespace": "trailing",
+  "editor.tabSize": 2,
+  "editor.indentSize": "tabSize",
+  "editor.insertSpaces": true,
+  // - files.exclude will hide junk in the file explorer
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    ".github": true,
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/dist": true,
+    "**/build": true,
+    // python stuff
+    "**/__pycache__/": true,
+    "**/.venv/": true,
+    "**/.ipynb_checkpoints/": true,
+    ".eggs": true,
+    "*.egg-info": true,
+    ".coverage": true,
+    ".ruff_cache": true,
+    ".pytest_cache": true,
+    ".mypy_cache": true
+  },
+  "workbench.colorTheme": "Monokai",
+  // ======================================================
+  // terminal settings
+  // ======================================================
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.lineHeight": 1,
+  "terminal.integrated.letterSpacing": 0,
+  "terminal.integrated.gpuAcceleration": "on",
+  // ======================================================
+  // python settings
+  // ======================================================
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.wordBasedSuggestions": true,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  // - analysis
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.logLevel": "Information",
+  "python.analysis.exclude": [
+    ".venv/**"
+  ],
+  "python.analysis.stubPath": "typings",
+  // - formatting
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": [
+    "--line-length=119"
+  ],
+  "python.formatting.blackPath": "~/.local/bin/black",
+  // - linting
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": [
+    "--max-line-length=119",
+    "--ignore=E,W,D,I,N806,N815,N818,Q000,Q001,Q002,S001"
+  ],
+  // ======================================================
+  // javascript and typescript
+  // ======================================================
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // ======================================================
+  // Extension: vscode-icons
+  // Name: vscode-icons
+  // Id: vscode-icons-team.vscode-icons
+  // Description: Icons for Visual Studio Code
+  // Version: 12.2.0
+  // Publisher: VSCode Icons Team
+  // VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
+  // ======================================================
+  "workbench.iconTheme": "vscode-icons",
+  "vsicons.associations.folders": [
+    {
+      "icon": "python",
+      "extensions": [
+        "notebooks"
+      ],
+      "format": "svg"
+    },
+    {
+      "icon": "plugin",
+      "extensions": [
+        "perl"
+      ],
+      "format": "svg"
+    },
+    {
+      "icon": "db",
+      "extensions": [
+        "static_datasets",
+        "archive",
+        "datasets"
+      ],
+      "format": "svg"
+    }
+  ],
+  "vsicons.associations.files": [
+    {
+      "icon": "db",
+      "extensions": [
+        "arrow",
+        "pq",
+        "parquet"
+      ],
+      "format": "svg"
+    }
+  ],
+  // ======================================================
+  // Extension: Code Spell Checker
+  // Name: Code Spell Checker
+  // Id: streetsidesoftware.code-spell-checker
+  // Description: Spelling checker for source code
+  // Version: 2.20.3
+  // Publisher: Street Side Software
+  // VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+  // ======================================================
+  // - cSpell.customDictionaries is a list of dictionaries to use
+  // - dotfiles-dictionary is a dictionary I keep in my dotfiles repo and symlink to
+  "cSpell.customDictionaries": {
+    "dotfiles-dictionary": {
+      "name": "dotfiles-dictionary",
+      "path": "~/dotfiles/vscode/dictionary.txt",
+      "description": "Words used in this project",
+      "addWords": true
+    }
+  }
 }
