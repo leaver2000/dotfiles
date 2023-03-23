@@ -71,7 +71,17 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
-ZSH_AUTOSUGGEST_STRATEGY=(completion history)
+# Suggestion Strategy
+# ZSH_AUTOSUGGEST_STRATEGY is an array that specifies how suggestions should be generated. 
+# The strategies in the array are tried successively until a suggestion is found.
+# There are currently three built-in strategies to choose from:
+
+# history: Chooses the most recent match from history.
+# completion: Chooses a suggestion based on what tab-completion would suggest. (requires zpty module)
+# match_prev_cmd: Like history, but chooses the most recent match whose preceding history item matches the most
+# recently executed command. 
+
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # activate plugins
 source $ZSH/oh-my-zsh.sh
 
@@ -80,6 +90,7 @@ source $ZSH/oh-my-zsh.sh
 alias lc='ls -GFlash --color'
 alias open-zsh="code ~/.zshrc"
 alias reload-zsh="source ~/.zshrc"
+alias post-zsh="cp ~/.zshrc $DOTFILES/zsh/.zshrc && cd $DOTFILES && git add . && git commit -m 'zshrc update' && git push"
 alias open-oh-my-zsh="code ~/.oh-my-zsh"
 
 # nvm
@@ -89,4 +100,3 @@ export NVM_DIR="$HOME/.nvm"
 
 # pipx
 export PATH="$PATH:$HOME/.local/bin"
-
