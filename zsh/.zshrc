@@ -86,12 +86,15 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 source $ZSH/oh-my-zsh.sh
 
 # User Configuration
-# - aliases
+# Aliases
 alias lc='ls -GFlash --color'
+alias crd='~/$1'
+# - zsh-alias's
 alias open-zsh="code ~/.zshrc"
 alias reload-zsh="source ~/.zshrc"
-alias post-zsh="cp ~/.zshrc $DOTFILES/zsh/.zshrc && cd $DOTFILES && git add . && git commit -m 'zshrc update' && git push"
+alias post-zsh="cp ~/.zshrc $DOTFILES/zsh/.zshrc"
 alias open-oh-my-zsh="code ~/.oh-my-zsh"
+
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
