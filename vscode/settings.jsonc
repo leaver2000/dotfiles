@@ -1,14 +1,19 @@
 {
-  // ======================================================
+  // =====================================================================
   // These are VSCode settings I use across all my projects
-  // ======================================================
+  // =====================================================================
   "editor.tabCompletion": "on",
+  // scale the total zoom level of the editor
   "editor.rulers": [119],
   "editor.renderWhitespace": "trailing",
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
   // - files.exclude will hide junk in the file explorer
   "files.exclude": {
+    ".gitignore": true,
+    ".gitmodules": true,
     "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
@@ -24,26 +29,27 @@
     "**/__pycache__/": true,
     "**/.venv/": true,
     "**/.ipynb_checkpoints/": true,
-    ".eggs": true,
-    "*.egg-info": true,
+    "**/*.egg-info": true,
+    "**/.eggs": true,
     ".coverage": true,
     ".ruff_cache": true,
     ".pytest_cache": true,
     ".mypy_cache": true
   },
   "workbench.colorTheme": "Monokai",
-  // ======================================================
+  // change the git message editor to vscode
+  // =====================================================================
   // terminal settings
-  // ======================================================
+  // =====================================================================
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.lineHeight": 1,
   "terminal.integrated.letterSpacing": 0,
   "terminal.integrated.gpuAcceleration": "on",
-  // ======================================================
+  // =====================================================================
   // python settings
-  // ======================================================
+  // =====================================================================
   "[python]": {
     "editor.tabSize": 4,
     "editor.wordBasedSuggestions": true,
@@ -60,30 +66,74 @@
   "python.formatting.blackArgs": ["--line-length=119"],
   "python.formatting.blackPath": "~/.local/bin/black",
   // - linting
-  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Enabled": false,
   "python.linting.flake8Args": ["--max-line-length=119", "--ignore=E,W,D,I,N806,N815,N818,Q000,Q001,Q002,S001"],
-  // ======================================================
+  // =====================================================================
   // javascript and typescript
-  // ======================================================
-  "[javascript]": {
-    "editor.tabSize": 2
-  },
-  "[typescript]": {
-    "editor.tabSize": 2
-  },
+  // =====================================================================
   "[json]": {
-    "editor.tabSize": 2,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.formatOnSave": false
   },
-  // ======================================================
-  // Extension: vscode-icons
+  // =====================================================================
+  // Name: TODO Highlight
+  // Id: wayou.vscode-todo-highlight
+  // Description: highlight TODOs, FIXMEs, and any keywords, annotations...
+  // Version: 1.0.5
+  // Publisher: Wayou Liu
+  // VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight
+  // =====================================================================
+  // INFO:
+  // - this is a bullet point
+  // • this is another bullet point
+  "todohighlight.isEnable": true,
+  "todohighlight.isCaseSensitive": true,
+  "todohighlight.defaultStyle": {
+    "color": "rgb(249,36,114)", // INFO: Monokai Red
+    "backgroundColor": "transparent",
+    "isWholeLine": false
+  },
+  // The regex below will match the following:
+  // PYTHON COMMENTS:
+  //   # ref:..
+  //   # info: ...
+  //   # type: ...
+  //   # noqa: ...
+  // JAVASCRIPT COMMENTS:
+  //	 // info: ...
+  //	 // ref: ...
+  "todohighlight.keywordsPattern": "(?<=#|\\/\\/)\\s(info|ref|see)(?=:)|(?<=#)\\s(noqa|type|pyright)(?=:)|(?<=#|\\/\\/)\\s(-|•)(?=\\s)|(?<=#|\\/\\/)\\s(={69,})",
+  "todohighlight.include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx", "**/*.html", "**/*.py", "**/*.ru"],
+  "todohighlight.exclude": [
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.vscode/**",
+    "**/.github/**",
+    "**/_output/**",
+    "**/*.min.*",
+    "**/*.map",
+    "**/.next/**",
+    ""
+  ],
+  "todohighlight.maxFilesForSearch": 5120,
+  // =====================================================================
+  // Name: Prettier - Code formatter
+  // Id: esbenp.prettier-vscode
+  // Description: Code formatter using prettier
+  // Version: 8.1.0
+  // Publisher: Prettier
+  // VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+  // =====================================================================
+  "prettier.configPath": "/home/leaver/dotfiles/.prettierrc",
+  // =====================================================================
   // Name: vscode-icons
   // Id: vscode-icons-team.vscode-icons
   // Description: Icons for Visual Studio Code
   // Version: 12.2.0
   // Publisher: VSCode Icons Team
   // VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
-  // ======================================================
+  // =====================================================================
   "workbench.iconTheme": "vscode-icons",
   "vsicons.associations.folders": [
     {
@@ -109,17 +159,17 @@
       "format": "svg"
     }
   ],
-  // ======================================================
-  // Extension: Code Spell Checker
+  // =====================================================================
   // Name: Code Spell Checker
   // Id: streetsidesoftware.code-spell-checker
   // Description: Spelling checker for source code
   // Version: 2.20.3
   // Publisher: Street Side Software
   // VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
-  // ======================================================
+  // =====================================================================
   // - cSpell.customDictionaries is a list of dictionaries to use
   // - dotfiles-dictionary is a dictionary I keep in my dotfiles repo and symlink to
+  "cSpell.minWordLength": 5,
   "cSpell.customDictionaries": {
     "dotfiles-dictionary": {
       "name": "dotfiles-dictionary",
@@ -127,5 +177,26 @@
       "description": "Words used in this project",
       "addWords": true
     }
-  }
+  },
+  // =====================================================================
+  // Name: indent-rainbow
+  // Id: oderwat.indent-rainbow
+  // Description: Makes indentation easier to read
+  // Version: 8.3.1
+  // Publisher: oderwat
+  // VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow
+  // =====================================================================
+  "indentRainbow.tabmixColor": "red",
+  "indentRainbow.indicatorStyle": "classic",
+  // we use a simple 1 pixel wide line
+  "indentRainbow.lightIndicatorStyleLineWidth": 1,
+  // the same colors as above but more visible
+  "indentRainbow.colors": [
+    //
+    "rgba(255,255,64,0.07)",
+    "rgba(127,255,127,0.07)",
+    "rgba(255,127,255,0.07)",
+    "rgba(79,236,236,0.07)"
+  ],
+  "indentRainbow.errorColor": "rgba(255,255,64,0.07)"
 }
