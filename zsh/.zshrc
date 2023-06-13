@@ -1,105 +1,81 @@
-# Config is maintained in dotfiles/zsh/
-DOTFILES="$HOME/dotfiles"
-# Path to oh-my-zsh installation.
-export ZSH="$DOTFILES/zsh/.oh-my-zsh"
-# Path to oh-my-zsh custom plugins.
-export ZSH_CUSTOM="$ZSH/custom"
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# zstyle ':completion:*' menu select
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="yyyy-mm-dd"
-
-# Plugins...
-# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 plugins=(
     git
     docker
     minikube
+    kubectl
+    helm
     zsh-autosuggestions
     zsh-syntax-highlighting
+    web-search
 )
-# Suggestion Strategy
-# ZSH_AUTOSUGGEST_STRATEGY is an array that specifies how suggestions should be generated. 
-# The strategies in the array are tried successively until a suggestion is found.
-# There are currently three built-in strategies to choose from:
 
-# history: Chooses the most recent match from history.
-# completion: Chooses a suggestion based on what tab-completion would suggest. (requires zpty module)
-# match_prev_cmd: Like history, but chooses the most recent match whose preceding history item matches the most
-# recently executed command. 
-
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-# activate plugins
 source $ZSH/oh-my-zsh.sh
+export PATH="$PATH:$HOME/.cargo/bin/"
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='code'
+fi
 
-# User Configuration
-# Aliases
-alias lc='ls -GFlash --color'
-alias crd='~/$1'
-# - zsh-alias's
-alias open-zsh="code ~/.zshrc"
-alias reload-zsh="source ~/.zshrc"
-alias post-zsh="cp ~/.zshrc $DOTFILES/zsh/.zshrc"
-alias open-oh-my-zsh="code ~/.oh-my-zsh"
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+alias zsh-reload="source ~/.zshrc"
+alias images="\
+docker images --format 'table {{.Repository}}\t{{.ID}}\t{{.Tag}}\t{{.Size}}' | (read -r; printf \"%s\n\" "$REPLY"; sort -h -k7)"
+alias containers="\
+docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}' | (read -r; printf \"%s\n\" "$REPLY"; sort -h -k7)"
+alias docker-login="docker login ironbank.dso.mil"
+alias venv-new="python -m venv .venv && source .venv/bin/activate"
+# a function to remove a glob pattern of repo names
+function docker-remove-repo() {
+    docker rmi $(docker images | grep $1 | awk '{print $3}')
+}
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
+source /home/leaver/.config/broot/launcher/bash/br
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# pipx
-export PATH="$PATH:$HOME/.local/bin"
+alias wsl="wsl.exe"
+alias powershell="powershell.exe"
+function code-find() {
+    code $(fzf)
+}
+
+function ff(){
+  name=$(
+    find "$1" \
+    -not -path "*/__pycache__/*" \code
+    | fzf --preview "batcat --color=always {}"
+  )
+  if [ -f "$name" ]; then   # open the file in vscode
+    code "$name"
+  elif [ -d "$name" ]; then # recurse into the directory
+    ff "$name"
+  else                      # exit if not a file or directory
+    printf "• 🤷‍♂️ exiting...\n"
+  fi
+}
+
+function grl(){
+  # git-revision list object size
+  # script to sort blobs by object size
+  git rev-list --objects --all \
+  | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
+  | sed -n 's/^blob //p' \
+  | sort --numeric-sort --key=2 \
+  | cut -c 1-12,41- \
+  | $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest
+  echo 🚀 git rev-list object size
+}
