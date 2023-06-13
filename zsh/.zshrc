@@ -21,36 +21,11 @@ else
   export EDITOR='code'
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias zsh-reload="source ~/.zshrc"
-alias images="\
-docker images --format 'table {{.Repository}}\t{{.ID}}\t{{.Tag}}\t{{.Size}}' | (read -r; printf \"%s\n\" "$REPLY"; sort -h -k7)"
-alias containers="\
-docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}' | (read -r; printf \"%s\n\" "$REPLY"; sort -h -k7)"
-alias docker-login="docker login ironbank.dso.mil"
-alias venv-new="python -m venv .venv && source .venv/bin/activate"
-# a function to remove a glob pattern of repo names
-function docker-remove-repo() {
-    docker rmi $(docker images | grep $1 | awk '{print $3}')
-}
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-source /home/leaver/.config/broot/launcher/bash/br
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias wsl="wsl.exe"
-alias powershell="powershell.exe"
-function code-find() {
-    code $(fzf)
+function docker-remove-repo() {
+  # removes a entire 
+  docker rmi $(docker images | grep $1 | awk '{print $3}')
 }
 
 function ff(){
@@ -68,9 +43,8 @@ function ff(){
   fi
 }
 
-function grl(){
-  # git-revision list object size
-  # script to sort blobs by object size
+function git-blob-size(){
+  # script to sort git blobs by object size
   git rev-list --objects --all \
   | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
   | sed -n 's/^blob //p' \
@@ -79,3 +53,9 @@ function grl(){
   | $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest
   echo 🚀 git rev-list object size
 }
+
+alias zsh-reload="source ~/.zshrc"
+alias images="\
+docker images --format 'table {{.Repository}}\t{{.ID}}\t{{.Tag}}\t{{.Size}}' | (read -r; printf \"%s\n\" "$REPLY"; sort -h -k7)"
+alias containers="\
+docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}' | (read -r; printf \"%s\n\" "$REPLY"; sort -h -k7)"
