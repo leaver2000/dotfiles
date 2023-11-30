@@ -1,0 +1,45 @@
+[build-system]
+requires = [
+    "setuptools>=58.2.0",
+    "wheel",
+    "numpy>=1.23.4"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my_module"
+version = "0.0.1"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.23.4"]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+my_module = ["py.typed", "*.pyi", "**/*.pyi"]
+
+[project.optional-dependencies]
+test = [
+    "pytest >= 7.2.0",
+    "coverage >= 6.5.0",
+    "gcovr >= 5.2"
+]
+lint = ["black", "flake8"]
+
+[tool.coverage.run]
+omit = ["*/__init__.py", "tests/*"]
+source = [ "src" ]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "def _html_repr_",
+    "@(abc\\.)?abstractmethod",
+]
+
+[tool.pytest]
+testpaths = "tests/"

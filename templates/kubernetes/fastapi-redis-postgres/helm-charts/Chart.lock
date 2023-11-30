@@ -1,0 +1,12 @@
+dependencies:
+- name: common
+  repository: file://dependencies/common
+  version: 2.4.0
+- name: redis
+  repository: file://dependencies/redis
+  version: 17.11.3
+- name: postgresql
+  repository: file://dependencies/postgresql
+  version: 12.5.5
+digest: sha256:cdda685e5f132a33d27832765cfb8e65fb246af83cb79661852764d3217b85fc
+generated: "2023-05-27T10:30:30.153358877-05:00"

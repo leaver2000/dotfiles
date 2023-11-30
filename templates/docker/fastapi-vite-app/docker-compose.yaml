@@ -1,0 +1,33 @@
+---
+version: "3.9"
+
+networks:
+  my-network: null
+
+services:
+  api:
+    image: my/api
+    build:
+      context: api/
+      dockerfile: Dockerfile
+    container_name: api
+    networks:
+      - my-network
+    ports:
+      - "5000:80" # expose port 5000 on the host and map it to port 80 in the container
+  client:
+    image: my/client
+    build:
+      context: client/
+      dockerfile: Dockerfile
+    container_name: my-client
+    depends_on:
+      - api
+    links:
+      - api
+    networks:
+      - my-network
+    ports:
+      - "80:80" # expose port 80 on the host and map it to port 80 in the container
+    environment:
+      - VITE_API_URL=/api # set the API location to /api for the client

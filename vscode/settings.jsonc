@@ -1,304 +1,303 @@
 {
-	// =====================================================================
-	// These are VSCode settings I use across all my projects
-	// =====================================================================
-	"editor.tabCompletion": "on",
-	// scale the total zoom level of the editor
-	"editor.rulers": [119],
-	"zenMode.centerLayout": false,
-	// "editor.rulers"
-	"editor.renderWhitespace": "trailing",
-	"editor.tabSize": 2,
-	"editor.insertSpaces": true,
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	// "editor.formatOnSave": true,
-	// // hide row numbers
-	// "editor.lineNumbers": "off",
-	// // hide the minimap
-	// "editor.minimap.enabled": false,
-	// hide the scrollbar
-	"editor.scrollbar.horizontal": "auto",
-	"editor.scrollbar.vertical": "hidden",
-	// hide the scroll bar arrows
-	"editor.scrollbar.horizontalScrollbarSize": 0,
-	"editor.scrollbar.verticalScrollbarSize": 4,
-	"editor.fontSize": 13.5,
-	// hide breakpoints
-	// smaller font size
-	// "workbench.statusBar.visible": false,
-	// - files.exclude will hide junk in the file explorer
-	"files.exclude": {
-		".gitignore": true,
-		".gitmodules": true,
-		"**/.git": true,
-		"**/.svn": true,
-		"**/.hg": true,
-		"**/CVS": true,
-		"**/.DS_Store": true,
-		"**/Thumbs.db": true,
-		".github": true,
-		"**/node_modules": true,
-		"**/bower_components": true,
-		"**/dist": true,
-		// "**/build": true,
-		// python stuff
-		"**/__pycache__/": true,
-		"**/.venv/": true,
-		"**/.ipynb_checkpoints/": true,
-		"**/*.egg-info": true,
-		"**/.eggs": true,
-		".coverage": true,
-		".ruff_cache": true,
-		".pytest_cache": true,
-		".mypy_cache": true,
-		".sourcery.yaml": true,
-	},
-	"workbench.colorTheme": "Monokai",
-	// change the git message editor to vscode
-	// =====================================================================
-	// terminal settings
-	// =====================================================================
-	"terminal.integrated.cursorStyle": "line",
-	"terminal.integrated.cursorBlinking": true,
-	"terminal.integrated.fontSize": 14,
-	"terminal.integrated.lineHeight": 1,
-	"terminal.integrated.letterSpacing": 0,
-	"terminal.integrated.gpuAcceleration": "on",
-	// =====================================================================
-	// python settings
-	// =====================================================================
-	// "editor.defaultFormatter": "b"
-	// - analysis
-	"python.analysis.typeCheckingMode": "basic",
-	"python.analysis.logLevel": "Information",
-	"python.analysis.exclude": [".venv/**"],
-	"python.analysis.stubPath": "typings",
-	// - formatting
-	"python.formatting.provider": "none",
-	"python.formatting.blackArgs": ["--line-length=119"],
-	// - linting
-	"python.linting.flake8Enabled": true,
-	"python.linting.flake8Args": [
-		//
-		"--max-line-length=119",
-		"--ignore=E,W,D,I,N806,N815,N818,Q000,Q001,Q002,S001"
-	],
-	"[python]": {
-		"editor.tabSize": 4,
-		"editor.wordBasedSuggestions": true,
-		"editor.formatOnSave": true,
-		// "editor.defaultFormatter": "ms-python.python"
-		// "editor.defaultFormatter": "ms-python.python"
-		"editor.defaultFormatter": "ms-python.black-formatter"
-	},
-	// =====================================================================
-	// javascript and typescript
-	// =====================================================================
-	"[json]": {
-		"editor.formatOnSave": false
-	},
-	// =====================================================================
-	// Name: AutoDocstring
-	// Id: njp-anderson.autoDocstring
-	// Description: Automatically generate docstrings for Python functions
-	// Version: 0.5.7
-	// Publisher: Nathan Anderson
-	// VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=njp-anderson.autoDocstring
-	// =====================================================================
-	"autoDocstring.docstringFormat": "numpy",
-	// =====================================================================
-	// Name: TODO Highlight
-	// Id: wayou.vscode-todo-highlight
-	// Description: highlight TODOs, FIXMEs, and any keywords, annotations...
-	// Version: 1.0.5
-	// Publisher: Wayou Liu
-	// VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight
-	// =====================================================================
-	// INFO:
-	// - this is a bullet point
-	// • this is another bullet point
-	"todohighlight.isEnable": true,
-	"todohighlight.isCaseSensitive": true,
-	"todohighlight.defaultStyle": {
-		"color": "rgb(249,36,114)", // INFO: Monokai Red
-		"backgroundColor": "transparent",
-		"isWholeLine": false
-	},
-	// The regex below will match the following:
-	// PYTHON COMMENTS:
-	//   # ref:..
-	//   # info: ...
-	//   # type: ...
-	//   # noqa: ...
-	//   # note: ...
-	//   # test: ...
-	//	 # - ...
-	// JAVASCRIPT COMMENTS:
-	//	 // ref: ...
-	//	 // info: ...
-	//	 // note: ...
-	//	 // test: ...
-	//
-	"todohighlight.keywordsPattern": "[ \t](Raises|Returns|Parameters|Examples)|(?<=#|\\/\\/)\\s(info|ref|see|note|test)(?=:)|(?<=#)\\s(noqa|type|test|pyright)(?=:)|(?<=#|\\/\\/)\\s(-|•)(?=\\s)|(?<=#|\\/\\/)\\s(={69,})",
-	"todohighlight.include": [
-		//
-		"**/*.js",
-		"**/*.jsx",
-		"**/*.ts",
-		"**/*.tsx",
-		"**/*.html",
-		"**/*.py",
-		"**/*.ru"
-	],
-	"todohighlight.exclude": [
-		"**/node_modules/**",
-		"**/bower_components/**",
-		"**/dist/**",
-		"**/build/**",
-		"**/.vscode/**",
-		"**/.github/**",
-		"**/_output/**",
-		"**/*.min.*",
-		"**/*.map",
-		"**/.next/**",
-		""
-	],
-	"todohighlight.maxFilesForSearch": 5120,
-	// =====================================================================
-	// Name: Go to Next/Previous Member
-	// Id: mishkinf.goto-next-previous-member
-	// Description: Visual Studio Code Extenion to navigate through the functions, variables, and classes using quick and easy keycommands similar to functionality provided by IntelliJ IDE's (next/previous function) or Resharper (next/previous member)
-	// Version: 0.0.6
-	// Publisher: Mishkin Faustini
-	// VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=mishkinf.goto-next-previous-member
-	// =====================================================================
-	"gotoNextPreviousMember.symbolKinds": [
-		"array",
-		"boolean",
-		"class",
-		"constant",
-		"constructor",
-		"enum",
-		"enummember",
-		"event",
-		"field",
-		"file",
-		"function",
-		"interface",
-		"key",
-		"method",
-		// "module",
-		"namespace",
-		// "null",
-		"number",
-		"object"
-		// "operator",
-		// "package",
-		// "property",
-		// "string",
-		// "struct",
-		// "typeparameter",
-		// "variable"
-	],
-	// =====================================================================
-	// Name: Prettier - Code formatter
-	// Id: esbenp.prettier-vscode
-	// Description: Code formatter using prettier
-	// Version: 8.1.0
-	// Publisher: Prettier
-	// VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
-	// =====================================================================
-	"prettier.configPath": "/home/leaver/dotfiles/.prettierrc",
-	// =====================================================================
-	// Name: vscode-icons
-	// Id: vscode-icons-team.vscode-icons
-	// Description: Icons for Visual Studio Code
-	// Version: 12.2.0
-	// Publisher: VSCode Icons Team
-	// VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
-	// =====================================================================
-	"workbench.iconTheme": "vscode-icons",
-	"vsicons.associations.folders": [
-		{
-			"icon": "python",
-			"extensions": ["notebooks"],
-			"format": "svg"
-		},
+  // =====================================================================
+  // These are VSCode settings I use across all my projects
+  // =====================================================================
+  "editor.tabCompletion": "on",
+  // scale the total zoom level of the editor
+  "editor.rulers": [119],
+  "zenMode.centerLayout": false,
+  // "editor.rulers"
+  "editor.renderWhitespace": "trailing",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "editor.formatOnSave": true,
+  // // hide row numbers
+  // "editor.lineNumbers": "off",
+  // // hide the minimap
+  // "editor.minimap.enabled": false,
+  // hide the scrollbar
+  "editor.scrollbar.horizontal": "auto",
+  "editor.scrollbar.vertical": "hidden",
+  // hide the scroll bar arrows
+  "editor.scrollbar.horizontalScrollbarSize": 0,
+  "editor.scrollbar.verticalScrollbarSize": 4,
+  "editor.fontSize": 13.5,
+  // hide breakpoints
+  // smaller font size
+  // "workbench.statusBar.visible": false,
+  // - files.exclude will hide junk in the file explorer
+  "files.exclude": {
+    ".gitignore": true,
+    ".gitmodules": true,
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    ".github": true,
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/dist": true,
+    // "**/build": true,
+    // python stuff
+    "**/__pycache__/": true,
+    "**/.venv/": true,
+    "**/.ipynb_checkpoints/": true,
+    "**/*.egg-info": true,
+    "**/.eggs": true,
+    ".coverage": true,
+    ".ruff_cache": true,
+    ".pytest_cache": true,
+    ".mypy_cache": true,
+    ".sourcery.yaml": true
+  },
+  "workbench.colorTheme": "Monokai",
+  // change the git message editor to vscode
+  // =====================================================================
+  // terminal settings
+  // =====================================================================
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.lineHeight": 1,
+  "terminal.integrated.letterSpacing": 0,
+  "terminal.integrated.gpuAcceleration": "on",
+  // =====================================================================
+  // python settings
+  // =====================================================================
+  // "editor.defaultFormatter": "b"
+  // - analysis
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.logLevel": "Information",
+  "python.analysis.exclude": [".venv/**"],
+  "python.analysis.stubPath": "typings",
+  // - formatting
+  "python.formatting.provider": "none",
+  "python.formatting.blackArgs": ["--line-length=119"],
+  // - linting
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": [
+    //
+    "--max-line-length=119",
+    "--ignore=E,W,D,I,N806,N815,N818,Q000,Q001,Q002,S001"
+  ],
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.wordBasedSuggestions": true,
+    "editor.formatOnSave": true,
+    // "editor.defaultFormatter": "ms-python.python"
+    // "editor.defaultFormatter": "ms-python.python"
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  // =====================================================================
+  // javascript and typescript
+  // =====================================================================
+  "[json]": {
+    "editor.formatOnSave": false
+  },
+  // =====================================================================
+  // Name: AutoDocstring
+  // Id: njp-anderson.autoDocstring
+  // Description: Automatically generate docstrings for Python functions
+  // Version: 0.5.7
+  // Publisher: Nathan Anderson
+  // VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=njp-anderson.autoDocstring
+  // =====================================================================
+  "autoDocstring.docstringFormat": "numpy",
+  // =====================================================================
+  // Name: TODO Highlight
+  // Id: wayou.vscode-todo-highlight
+  // Description: highlight TODOs, FIXMEs, and any keywords, annotations...
+  // Version: 1.0.5
+  // Publisher: Wayou Liu
+  // VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight
+  // =====================================================================
+  // INFO:
+  // - this is a bullet point
+  // • this is another bullet point
+  "todohighlight.isEnable": true,
+  "todohighlight.isCaseSensitive": true,
+  "todohighlight.defaultStyle": {
+    "color": "rgb(249,36,114)", // INFO: Monokai Red
+    "backgroundColor": "transparent",
+    "isWholeLine": false
+  },
+  // The regex below will match the following:
+  // PYTHON COMMENTS:
+  //   # ref:..
+  //   # info: ...
+  //   # type: ...
+  //   # noqa: ...
+  //   # note: ...
+  //   # test: ...
+  //	 # - ...
+  // JAVASCRIPT COMMENTS:
+  //	 // ref: ...
+  //	 // info: ...
+  //	 // note: ...
+  //	 // test: ...
+  //
+  "todohighlight.keywordsPattern": "[ \t](Raises|Returns|Parameters|Examples)|(?<=#|\\/\\/)\\s(info|ref|see|note|test)(?=:)|(?<=#)\\s(noqa|type|test|pyright)(?=:)|(?<=#|\\/\\/)\\s(-|•)(?=\\s)|(?<=#|\\/\\/)\\s(={69,})",
+  "todohighlight.include": [
+    //
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.html",
+    "**/*.py",
+    "**/*.ru"
+  ],
+  "todohighlight.exclude": [
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.vscode/**",
+    "**/.github/**",
+    "**/_output/**",
+    "**/*.min.*",
+    "**/*.map",
+    "**/.next/**",
+    ""
+  ],
+  "todohighlight.maxFilesForSearch": 5120,
+  // =====================================================================
+  // Name: Go to Next/Previous Member
+  // Id: mishkinf.goto-next-previous-member
+  // Description: Visual Studio Code Extenion to navigate through the functions, variables, and classes using quick and easy keycommands similar to functionality provided by IntelliJ IDE's (next/previous function) or Resharper (next/previous member)
+  // Version: 0.0.6
+  // Publisher: Mishkin Faustini
+  // VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=mishkinf.goto-next-previous-member
+  // =====================================================================
+  "gotoNextPreviousMember.symbolKinds": [
+    "array",
+    "boolean",
+    "class",
+    "constant",
+    "constructor",
+    "enum",
+    "enummember",
+    "event",
+    "field",
+    "file",
+    "function",
+    "interface",
+    "key",
+    "method",
+    // "module",
+    "namespace",
+    // "null",
+    "number",
+    "object"
+    // "operator",
+    // "package",
+    // "property",
+    // "string",
+    // "struct",
+    // "typeparameter",
+    // "variable"
+  ],
+  // =====================================================================
+  // Name: Prettier - Code formatter
+  // Id: esbenp.prettier-vscode
+  // Description: Code formatter using prettier
+  // Version: 8.1.0
+  // Publisher: Prettier
+  // VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+  // =====================================================================
+  "prettier.configPath": "/home/leaver/dotfiles/.prettierrc",
+  // =====================================================================
+  // Name: vscode-icons
+  // Id: vscode-icons-team.vscode-icons
+  // Description: Icons for Visual Studio Code
+  // Version: 12.2.0
+  // Publisher: VSCode Icons Team
+  // VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
+  // =====================================================================
+  "workbench.iconTheme": "vscode-icons",
+  "vsicons.associations.folders": [
+    {
+      "icon": "python",
+      "extensions": ["notebooks"],
+      "format": "svg"
+    },
 
-		{
-			"icon": "plugin",
-			"extensions": ["perl"],
-			"format": "svg"
-		},
-		{
-			"icon": "db",
-			"extensions": ["static_datasets", "archive", "datasets", "postgres", "postgresql"],
-			"format": "svg"
-		},
-		{
-			"icon": "redis",
-			"extensions": ["redis", "redis-cache"],
-			"format": "svg"
-		},
-		{
-			"extensions":["sandbox"],
-			"icon": "config"
-		}
-	],
-	"vsicons.associations.files": [
-		{
-			"icon": "db",
-			"extensions": ["arrow", "pq", "parquet"],
-			"format": "svg"
-		},
-		{
-			"icon":"docker",
-			"extensions":["docker-compose.yaml"],
-			"format":"svg"
-		}
-
-	],
-	// =====================================================================
-	// Name: Code Spell Checker
-	// Id: streetsidesoftware.code-spell-checker
-	// Description: Spelling checker for source code
-	// Version: 2.20.3
-	// Publisher: Street Side Software
-	// VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
-	// =====================================================================
-	// - cSpell.customDictionaries is a list of dictionaries to use
-	// - dotfiles-dictionary is a dictionary I keep in my dotfiles repo and symlink to
-	"cSpell.minWordLength": 5,
-	"cSpell.customDictionaries": {
-		"dotfiles-dictionary": {
-			"name": "dotfiles-dictionary",
-			"path": "~/dotfiles/vscode/dictionary.txt",
-			"description": "Words used in this project",
-			"addWords": true
-		}
-	},
-	// =====================================================================
-	// Name: indent-rainbow
-	// Id: oderwat.indent-rainbow
-	// Description: Makes indentation easier to read
-	// Version: 8.3.1
-	// Publisher: oderwat
-	// VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow
-	// =====================================================================
-	"indentRainbow.tabmixColor": "red",
-	"indentRainbow.indicatorStyle": "classic",
-	// we use a simple 1 pixel wide line
-	"indentRainbow.lightIndicatorStyleLineWidth": 1,
-	// the same colors as above but more visible
-	"indentRainbow.colors": [
-		//
-		"rgba(255,255,64,0.07)",
-		"rgba(127,255,127,0.07)",
-		"rgba(255,127,255,0.07)",
-		"rgba(79,236,236,0.07)"
-	],
-	"indentRainbow.errorColor": "rgba(255,255,64,0.07)",
-	"[perl]": {
-		"editor.defaultFormatter": "sfodje.perltidy"
-	}
+    {
+      "icon": "plugin",
+      "extensions": ["perl"],
+      "format": "svg"
+    },
+    {
+      "icon": "db",
+      "extensions": ["static_datasets", "archive", "datasets", "postgres", "postgresql"],
+      "format": "svg"
+    },
+    {
+      "icon": "redis",
+      "extensions": ["redis", "redis-cache"],
+      "format": "svg"
+    },
+    {
+      "extensions": ["sandbox"],
+      "icon": "config"
+    }
+  ],
+  "vsicons.associations.files": [
+    {
+      "icon": "db",
+      "extensions": ["arrow", "pq", "parquet"],
+      "format": "svg"
+    },
+    {
+      "icon": "docker",
+      "extensions": ["docker-compose.yaml"],
+      "format": "svg"
+    }
+  ],
+  // =====================================================================
+  // Name: Code Spell Checker
+  // Id: streetsidesoftware.code-spell-checker
+  // Description: Spelling checker for source code
+  // Version: 2.20.3
+  // Publisher: Street Side Software
+  // VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+  // =====================================================================
+  // - cSpell.customDictionaries is a list of dictionaries to use
+  // - dotfiles-dictionary is a dictionary I keep in my dotfiles repo and symlink to
+  "cSpell.minWordLength": 5,
+  "cSpell.customDictionaries": {
+    "dotfiles-dictionary": {
+      "name": "dotfiles-dictionary",
+      "path": "~/dotfiles/vscode/dictionary.txt",
+      "description": "Words used in this project",
+      "addWords": true
+    }
+  },
+  // =====================================================================
+  // Name: indent-rainbow
+  // Id: oderwat.indent-rainbow
+  // Description: Makes indentation easier to read
+  // Version: 8.3.1
+  // Publisher: oderwat
+  // VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow
+  // =====================================================================
+  "indentRainbow.tabmixColor": "red",
+  "indentRainbow.indicatorStyle": "classic",
+  // we use a simple 1 pixel wide line
+  "indentRainbow.lightIndicatorStyleLineWidth": 1,
+  // the same colors as above but more visible
+  "indentRainbow.colors": [
+    //
+    "rgba(255,255,64,0.07)",
+    "rgba(127,255,127,0.07)",
+    "rgba(255,127,255,0.07)",
+    "rgba(79,236,236,0.07)"
+  ],
+  "indentRainbow.errorColor": "rgba(255,255,64,0.07)",
+  "[perl]": {
+    "editor.defaultFormatter": "sfodje.perltidy"
+  }
 }

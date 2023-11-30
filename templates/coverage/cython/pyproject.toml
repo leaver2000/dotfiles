@@ -1,0 +1,49 @@
+# pyproject.toml
+[build-system]
+requires = [
+    "setuptools>=58.2.0", 
+    "wheel", 
+    "Cython>=0.29.23", 
+    "numpy>=1.23.4", 
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my_module"
+version = "0.0.1"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+test = [
+    "Cython >= 0.29.23", 
+    "pytest >= 7.2.0",
+    "coverage >= 6.5.0"
+]
+lint = ["black", "flake8"]
+
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+my_module = ["py.typed", "*.pyi", "**/*.pyi"]
+
+[tool.coverage.run]
+plugins = ["Cython.Coverage"]
+omit = ["*/__init__.py", "tests/*"]
+source = [ "src" ]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "def _html_repr_",
+    "@(abc\\.)?abstractmethod",
+]
+
+[tool.pytest]
+testpaths = "tests/"

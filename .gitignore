@@ -3,3 +3,15 @@ node_modules/
 build/
 .coverage
 .ipynb_checkpoints/
+__pycache__/
+build/
+dist/
+*.egg-info/
+**/*/.coverage
+cython/**/*/*.c
+.pytest_cache/
+venv/
+.venv/
+*.so
+*.bin
+*.pt
